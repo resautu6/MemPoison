@@ -192,11 +192,11 @@ def designated_structure(case: dict[str, Any]) -> DesignatedStructure:
         )
 
     if level == "L2_compositional":
-        if attack_type == "fact":
+        if attack_type == "fact" or len(turns) == 2:
             return DesignatedStructure(
                 kind="fragment_pair",
                 turn_ids=(turns[0], turns[1]),
-                rule="l2_fact_semantic_pair_turn01_turn02",
+                rule=f"l2_{attack_type}_semantic_pair_turn01_turn02",
             )
         return DesignatedStructure(
             kind="fragment_pair",

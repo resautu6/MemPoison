@@ -90,7 +90,7 @@ def special_tokens(text: str) -> set[str]:
 
 
 def consistency_conflict_score(text: str, records: list[MemoryRecord]) -> float:
-    baseline_records = [record for record in records if not record.is_poison]
+    baseline_records = records
     if not baseline_records:
         return 0.0
 
@@ -186,7 +186,7 @@ def anomaly_score_breakdown(
 ) -> dict[str, float]:
     normalized_formula = normalize_anomaly_formula(formula)
     normalized_weights = normalize_anomaly_component_weights(weights, formula=normalized_formula)
-    baseline_records = [record for record in records if not record.is_poison]
+    baseline_records = records
     if not baseline_records:
         raw_components = {
             "novel_ratio": 0.0,
@@ -328,7 +328,7 @@ class BaseMemory:
                 continue
             trust_weight = record.trust_weight if self.defense.apply_provenance else 1.0
             scored.append((raw_score * trust_weight, raw_score, trust_weight, record))
-        scored.sort(key=lambda item: (item[0], item[1], item[2], item[3].is_poison), reverse=True)
+        scored.sort(key=lambda item: (item[0], item[1], item[2]), reverse=True)
         return [record for _, _, _, record in scored[:top_k]]
 
     def _new_write_report(self) -> dict[str, Any]:

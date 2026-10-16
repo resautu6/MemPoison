@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import random
 from collections import Counter
+from math import isfinite
 from typing import Callable, Iterable, Literal, Sequence
 
 
@@ -107,11 +108,11 @@ def omega_ij(
     minus_j_poisoned_match_score: float,
     minus_ij_poisoned_match_score: float,
 ) -> float:
-    """Pair interaction: Omega_ij = Delta_ij - Delta_i - Delta_j."""
+    """Pair interaction: Omega_ij = Delta_i + Delta_j - Delta_ij."""
     joint = delta_ij(full_poisoned_match_score, minus_ij_poisoned_match_score)
     left = delta_i(full_poisoned_match_score, minus_i_poisoned_match_score)
     right = delta_i(full_poisoned_match_score, minus_j_poisoned_match_score)
-    return joint - left - right
+    return left + right - joint
 
 
 def activation_shift_i(delta_trigger: float, delta_control: float) -> float:
@@ -123,14 +124,16 @@ def pipeline_bucket(
     *,
     admitted: bool,
     retrieved: bool,
-    poisoned_behavior: bool,
+    causal_effect: float | None = None,
 ) -> PipelineBucket:
-    """Four-stage write-time defense decomposition for a poisoned trigger row."""
+    """Classify a designated unit using its counterfactual poisoned-score drop."""
     if not admitted:
         return "write_blocked"
     if not retrieved:
         return "admitted_not_retrieved"
-    if not poisoned_behavior:
+    if causal_effect is None or not isfinite(causal_effect):
+        raise ValueError("A finite causal_effect is required for an admitted and retrieved unit.")
+    if causal_effect <= 0:
         return "retrieved_noncausal"
     return "retrieved_residual_causal"
 

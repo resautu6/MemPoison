@@ -20,6 +20,4 @@ unreviewed experiment outputs in public issues.
 
 ## Scope
 
-This policy covers the source code in this repository. Full benchmark releases
-and experiment provenance bundles may be published separately and should be
-reviewed independently.
+This policy covers the source code in this repository.

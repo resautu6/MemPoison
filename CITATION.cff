@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use MemPoison in your research, please cite the paper below."
+type: software
+title: MemPoison
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/resautu6/MemPoison"
+authors: &paper-authors
+  - family-names: Gao
+    given-names: Jifeng
+    affiliation: "State Key Laboratory for Novel Software Technology, Nanjing University, China"
+  - family-names: Xia
+    given-names: Kang
+    affiliation: "State Key Laboratory for Novel Software Technology, Nanjing University, China"
+  - family-names: Zhang
+    given-names: Yi
+    affiliation: "State Key Laboratory for Novel Software Technology, Nanjing University, China"
+  - family-names: Hong
+    given-names: Xiaobin
+    affiliation: "State Key Laboratory for Novel Software Technology, Nanjing University, China"
+  - family-names: Lin
+    given-names: Mingkai
+    affiliation: "State Key Laboratory for Novel Software Technology, Nanjing University, China"
+  - family-names: Wei
+    given-names: Xingshen
+    affiliation: "State Key Laboratory for Novel Software Technology, Nanjing University, China; NARI Group Corporation/State Grid Electric Power Research Institute, China"
+  - family-names: Li
+    given-names: Wenzhong
+    affiliation: "State Key Laboratory for Novel Software Technology, Nanjing University, China"
+  - family-names: Lu
+    given-names: Sanglu
+    affiliation: "State Key Laboratory for Novel Software Technology, Nanjing University, China"
+preferred-citation:
+  type: article
+  title: "MemPoison: Uncovering Persistent Memory Threats and Structural Blind Spots in LLM Agents"
+  authors: *paper-authors
+  year: 2026
+  date-published: "2026-07-16"
+  journal: arXiv
+  doi: "10.48550/arXiv.2607.14651"
+  url: "https://arxiv.org/abs/2607.14651"
+  identifiers:
+    - type: other
+      value: "arXiv:2607.14651"

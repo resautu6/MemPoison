@@ -93,7 +93,7 @@ class PublicReleaseSmokeTest(unittest.TestCase):
 
     def test_metric_formula_helpers(self) -> None:
         self.assertAlmostEqual(delta_i(0.8, 0.2), 0.6)
-        self.assertAlmostEqual(omega_ij(0.9, 0.8, 0.7, 0.2), 0.4)
+        self.assertAlmostEqual(omega_ij(0.9, 0.8, 0.7, 0.2), -0.4)
         self.assertAlmostEqual(activation_shift_i(0.5, 0.1), 0.4)
         rates = pipeline_bucket_rates(
             [

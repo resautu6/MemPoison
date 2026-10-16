@@ -44,9 +44,3 @@ Use the lightest validation that matches the change:
 - Python: keep code direct and explicit
 - Docs: prefer concrete instructions over high-level slogans
 - Claims: do not strengthen scientific claims without matching evidence
-
-## Release Note
-
-The source code is licensed under MIT. Treat full benchmark releases,
-provenance bundles, and paper materials as separately reviewed artifacts unless
-they are explicitly added to this public tree.

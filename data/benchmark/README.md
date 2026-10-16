@@ -1,8 +1,8 @@
 # MemPoison Benchmark Sample
 
 This directory contains a small public benchmark sample for local smoke testing
-and schema inspection. Larger reviewed benchmark releases should be published as
-separately versioned artifacts.
+and schema inspection. The complete benchmark is available on
+[Hugging Face](https://huggingface.co/datasets/MemPoison/MemPoison).
 
 ## Current Files
 
